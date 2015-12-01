@@ -1,3 +1,16 @@
 <%= image_tag("https://s3.amazonaws.com/dressup02/logo.png") %>
 
-<h2> I am here </h2>
+<div class="container">
+
+  <% @products.each do |product| %>
+    <div class="row">
+      <%= image_tag(product.image_url, class: "one-third column") %>
+      <h5 class="two-thirds column">
+        <%= product.name %>
+      </h5>
+      <div class="seven columns"><%= product.description %></div>
+    </div>
+    <br>
+  <% end %>
+
+</div>
