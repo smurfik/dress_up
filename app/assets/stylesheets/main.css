@@ -1,2 +1,10 @@
 * { outline: 1px solid pink; }
 
+.header li {
+  display: inline-block;
+  list-style: none;
+  padding: 15px;
+  float: right;
+  margin-top: 25px;
+}
+
