@@ -11,9 +11,9 @@
 
   <% @products.each do |product| %>
     <div class="row">
-      <%= image_tag(product.image_url, class: "one-third column") %>
+      <%= link_to image_tag(product.image_url, class: "one-third column"), product_path(product.id) %>
       <h5 class="two-thirds column">
-        <%= product.name %>
+        <%= link_to "#{product.name}", "#" %>
       </h5>
       <div class="seven columns"><%= product.description %></div>
     </div>
