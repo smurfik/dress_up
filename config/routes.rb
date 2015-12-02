@@ -2,6 +2,9 @@ Rails.application.routes.draw do
 
   get '/', to: 'products#index', as: :root
   get '/products/:id', to: 'products#show', as: :product
+  get '/cart', to: 'orders#index', as: :cart
+  get '/sign-in', to: 'users#sign_in', as: :sign_in
+  get '/sign-up', to: 'users#sign_up', as: :sign_up
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
