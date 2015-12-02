@@ -11,9 +11,9 @@
 <div class="row header">
   <%= link_to image_tag("https://s3.amazonaws.com/dressup02/logo.png", class: "one offset-by-one column"), root_path %>
   <ul class="nine columns">
-    <li>Cart (0)</li>
-    <li>Sign Up</li>
-    <li>Sign In</li>
+    <li><%= link_to "Cart (0)", "#" %></li>
+    <li><%= link_to "Sign Up", "#" %></li>
+    <li><%= link_to "Sign In", "#" %></li>
   </ul>
 </div>
 <%= yield %>
