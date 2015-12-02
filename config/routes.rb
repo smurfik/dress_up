@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get '/cart', to: 'orders#index', as: :cart
   get '/sign-in', to: 'users#sign_in', as: :sign_in
   get '/sign-up', to: 'users#sign_up', as: :sign_up
+  post '/sign-up', to: 'users#create'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
