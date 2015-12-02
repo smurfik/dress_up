@@ -1,5 +1,15 @@
 <div class="container">
+
   <h4>Sign Up</h4>
+
+  <% if @user %>
+    <ul class="list-unstyled">
+      <% @user.errors.each do |column, error_message| %>
+        <li><%= column %> <%= error_message %></li>
+      <% end %>
+    </ul>
+  <% end %>
+
   <%= form_tag sign_up_path do %>
     <%= label_tag "e-mail" %>
     <%= text_field_tag "user[email]" %>
@@ -9,4 +19,5 @@
     <%= password_field_tag "user[password_confirmation]" %>
     <%= submit_tag "Sign Up" %>
   <% end %>
+
 </div>

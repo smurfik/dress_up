@@ -8,8 +8,11 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(params.require(:user).permit(:email, :password, :password_confirmation))
-    @user.save
-    redirect_to root_path
+    if @user.save
+      redirect_to root_path
+    else
+      render :sign_up
+    end
   end
 
 end
