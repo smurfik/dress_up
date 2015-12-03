@@ -1,0 +1,15 @@
+<div class="container">
+
+  <div class="row">
+    <div class="col-lg-2 col-lg-offset-1">
+      <%= image_tag(@product.image_url, class: "image") %>
+    </div>
+    <h4 class="col-lg-9"><%= @product.name %></h4>
+    <div class="col-lg-9"><%= @product.description %></div>
+  </div>
+
+  <%= form_tag cart_path do %>
+    <%= select_tag "options", options_for_select(@product_options) %>
+<% end %>
+
+</div>

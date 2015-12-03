@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get '/products/:id' , to: 'products#show'  , as: :product
 
   get '/cart'         , to: 'orders#index'   , as: :cart
+  post '/cart'        , to: 'orders#create'
 
   get '/sign-in'      , to: 'users#sign_in'  , as: :sign_in
   post '/sign-in'     , to: 'users#sign_in_user'
