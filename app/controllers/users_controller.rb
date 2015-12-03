@@ -5,7 +5,9 @@ class UsersController < ApplicationController
   end
 
   def sign_up
-    set_current_user
+    if set_current_user
+      redirect_to root_path
+    end
   end
 
   def sign_out
