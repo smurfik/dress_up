@@ -1,9 +1,11 @@
 class UsersController < ApplicationController
 
   def sign_in
+    set_current_user
   end
 
   def sign_up
+    set_current_user
   end
 
   def sign_out
