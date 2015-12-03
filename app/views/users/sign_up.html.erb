@@ -7,7 +7,9 @@
   <% if @user %>
     <ul class="list-unstyled">
       <% @user.errors.each do |column, error_message| %>
-        <li><%= column %> <%= error_message %></li>
+        <div class="row">
+          <li class="col-lg-6 col-lg-offset-3 text-center alert alert-danger"><%= column %> <%= error_message %></li>
+        </div>
       <% end %>
     </ul>
   <% end %>
@@ -31,6 +33,7 @@
       </div>
       <%= password_field_tag "user[password_confirmation]", nil, class: "col-lg-2" %>
     </div>
+    <br>
     <div class="row">
       <div class="col-lg-2 col-lg-offset-5">
         <%= submit_tag "Sign Up", class: "btn btn-block btn-success" %>
