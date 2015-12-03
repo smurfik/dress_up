@@ -17,29 +17,23 @@
       <div class="col-lg-3 col-lg-offset-3 text-center">
         <%= label_tag "e-mail" %>
       </div>
-      <div class="col-lg-3">
-        <%= text_field_tag "user[email]" %>
-      </div>
+      <%= text_field_tag "user[email]", nil, class: "col-lg-2" %>
     </div>
     <div class="row">
       <div class="col-lg-3 col-lg-offset-3 text-center">
         <%= label_tag :password %>
       </div>
-      <div class="col-lg-3">
-        <%= password_field_tag "user[password]" %>
-      </div>
+      <%= password_field_tag "user[password]", nil, class: "col-lg-2" %>
     </div>
     <div class="row">
       <div class="col-lg-3 col-lg-offset-3 text-center">
         <%= label_tag "confirm your password" %>
       </div>
-      <div class="col-lg-3">
-        <%= password_field_tag "user[password_confirmation]" %>
-      </div>
+      <%= password_field_tag "user[password_confirmation]", nil, class: "col-lg-2" %>
     </div>
     <div class="row">
       <div class="col-lg-2 col-lg-offset-5">
-        <%= submit_tag "Sign Up", class: "btn btn-block" %>
+        <%= submit_tag "Sign Up", class: "btn btn-block btn-success" %>
       </div>
     </div>
   <% end %>
