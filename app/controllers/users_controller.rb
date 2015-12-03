@@ -1,7 +1,20 @@
 class UsersController < ApplicationController
 
   def sign_in
-    set_current_user
+    if set_current_user
+      redirect_to root_path
+    end
+  end
+
+  def sign_in_user
+    @user = User.find_by(email: params[:email])
+    if @user &&  @user.authenticate(params[:password])
+      session[:user_id] = @user.id
+      redirect_to root_path
+    else
+      flash[:notice] = "Wrong username or password. Try again!"
+      render :sign_in
+    end
   end
 
   def sign_up

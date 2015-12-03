@@ -1,0 +1,33 @@
+<div class="container">
+
+  <div class="row">
+    <h1 class="col-lg-6 col-lg-offset-3 text-center">Sign In</h1>
+  </div>
+
+  <% if flash[:notice] %>
+    <div class="row">
+      <div class="col-lg-6 col-lg-offset-3 text-center alert alert-danger"><%= flash[:notice] %></div>
+  <% end %>
+
+  <%= form_tag sign_in_path do %>
+    <div class="row">
+      <div class="col-lg-3 col-lg-offset-3 text-center">
+        <%= label_tag "e-mail" %>
+      </div>
+      <%= text_field_tag :email, nil, class: "col-lg-2" %>
+    </div>
+    <div class="row">
+      <div class="col-lg-3 col-lg-offset-3 text-center">
+        <%= label_tag :password %>
+      </div>
+      <%= password_field_tag :password, nil, class: "col-lg-2" %>
+    </div>
+    <br>
+    <div class="row">
+      <div class="col-lg-2 col-lg-offset-5">
+        <%= submit_tag "Sign In", class: "btn btn-block btn-success" %>
+      </div>
+    </div>
+  <% end %>
+
+</div>
