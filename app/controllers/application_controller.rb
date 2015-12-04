@@ -9,8 +9,4 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  def formatted_price
-    "$#{sprintf('%.2f', @product.price_in_cents)}"
-  end
-
 end
