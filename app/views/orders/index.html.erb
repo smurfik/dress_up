@@ -1,0 +1,7 @@
+<% if @cart %>
+  <% @cart.each do |product_option| %>
+    <%= product_option.name %>
+  <% end %>
+<% else %>
+    <div>You have no items in the cart</div>
+<% end %>
