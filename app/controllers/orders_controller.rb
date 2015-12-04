@@ -4,4 +4,8 @@ class OrdersController < ApplicationController
     set_current_user
   end
 
+  def create
+    raise
+  end
+
 end
