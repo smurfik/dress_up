@@ -12,8 +12,7 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id
       redirect_to root_path
     else
-      flash[:notice] = "Wrong username or password. Try again!"
-      render :sign_in
+      redirect_to sign_in_path, notice: "Wrong username or password. Try again!"
     end
   end
 

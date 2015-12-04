@@ -26,6 +26,13 @@
     </div>
   </div>
 
+  <% if flash[:notice] %>
+    <br>
+    <div class="col-lg-6 col-lg-offset-3 text-center alert alert-danger">
+      <%= flash[:notice] %>
+    </div>
+  <% end %>
+
 <%= yield %>
 
 </body>
