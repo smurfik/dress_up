@@ -10,6 +10,12 @@
       <div class="col-lg-9">
         <%= select_tag "product_option_id", options_from_collection_for_select(@product_options, :id, :dropdown_view), class: "col-lg-3" %>
       </div>
+      <div class="col-lg-1">
+        <%= label_tag :quantity %>
+      </div>
+      <div class="col-lg-9">
+        <%= select_tag "quantity", options_for_select(1..10), class: "col-lg-3" %>
+      </div>
       <div class="col-lg-2">
         <%= submit_tag "Add to cart", class: "btn btn-block btn-success" %>
       </div>

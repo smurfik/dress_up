@@ -9,6 +9,7 @@ class OrdersController < ApplicationController
     @cart = []
     @product = ProductOption.find(params[:product_option_id]).product
     @cart << ProductOption.find(params[:product_option_id])
+    raise
     render :index
   end
 
