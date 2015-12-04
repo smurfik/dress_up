@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
 
   def sign_in
+    set_current_order
     if set_current_user
       redirect_to root_path
     end
@@ -17,6 +18,7 @@ class UsersController < ApplicationController
   end
 
   def sign_up
+    set_current_order
     if set_current_user
       redirect_to root_path
     end

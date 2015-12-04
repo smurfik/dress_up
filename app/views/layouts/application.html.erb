@@ -15,7 +15,12 @@
         <%= link_to image_tag("https://s3.amazonaws.com/dressup02/logo.png"), root_path %>
       </div>
       <ul class="col-lg-11">
-        <li><%= link_to "Cart (0)", cart_path %></li>
+        <li>
+          <% if @current_order %>
+            <%= link_to "Cart (#{@current_order.items.count})", cart_path %></li>
+          <% else %>
+            <%= link_to "Cart (0)", cart_path %></li>
+          <% end %>
         <% if @current_user %>
           <li><%= link_to "Sign Out", sign_out_path %></li>
           <li><%= link_to "My Account", "#" %></li>
