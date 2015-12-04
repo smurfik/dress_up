@@ -5,6 +5,7 @@ class OrdersController < ApplicationController
   end
 
   def create
+    @product = ProductOption.find(params[:product_option_id]).product
     raise
   end
 
