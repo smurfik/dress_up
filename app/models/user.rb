@@ -4,5 +4,5 @@ class User < ActiveRecord::Base
 
   validates :email, presence: true, uniqueness: true, format: { with: /\w@\w/ }
 
-  has_many :orders
+  has_many :orders, dependent: :destroy
 end

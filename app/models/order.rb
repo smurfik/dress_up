@@ -1,6 +1,10 @@
 class Order < ActiveRecord::Base
 
-  has_many :items
+  validates :name, presence: true
+  validates :shipping_address, presence: true
+  validates :total, presence: true
+
+  has_many :items, dependent: :destroy
   belongs_to :user
 
   def total_price
