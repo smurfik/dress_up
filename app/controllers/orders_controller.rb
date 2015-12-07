@@ -12,4 +12,8 @@ class OrdersController < ApplicationController
   def show
   end
 
+  def update
+    raise
+  end
+
 end
