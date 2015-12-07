@@ -1,6 +1,6 @@
 <div class="container">
   <% if @current_order.items.blank? %>
-    <div>"Your cart is empty"</div>
+    <h1 class="col-lg-6 col-lg-offset-3 text-center">Your cart is empty</h1>
   <% else %>
     <% @current_order.items.each do |item| %>
       <div class="row">
