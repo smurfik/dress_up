@@ -7,15 +7,32 @@
         <div class="col-lg-2 col-lg-offset-1">
           <%= image_tag(item.product_option.product.image_url, class: "image") %>
         </div>
-          <h4 class="col-lg-9"><%= item.product_option.product.name %></h4>
-          <div class="col-lg-9"><%= item.product_option.product.description %></div>
-          <div class="col-lg-1"><%= item.product_option.name%></div>
-          <div class="col-lg-8"><%= item.product_option.formatted_price %></div>
-          <div class="col-lg-1"><%= label_tag :quantity %></div>
-          <div class="col-lg-1"><%= item.quantity %></div>
+        <div class="col-lg-9">
+          <h4>
+            <%= item.product_option.product.name %>
+          </h4>
+          <%= item.product_option.product.description %>
+          <div>
+            <%= item.product_option.name%>
+            <%= item.product_option.formatted_price %>
+          </div>
+          <div><strong>Quantity</strong>
+            <%= item.quantity %>
+          </div>
+          <div>
+            <strong>Sub Total </strong>
+            <%= item.formatted_price %>
+          </div>
+        </div>
       </div>
       <br>
     <% end %>
+
+    <div class="row">
+      <div class="col-lg-1 pull-right"><%= @current_order.formatted_price %></div>
+      <div class="col-lg-1 pull-right">Total</div>
+    </div>
+
     <div class="row">
       <%= link_to "Checkout", checkout_path, class: "col-lg-2 col-lg-offset-5 btn btn-success" %>
     </div>

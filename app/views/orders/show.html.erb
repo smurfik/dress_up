@@ -8,7 +8,9 @@
           <%= image_tag(item.product_option.product.image_url, class: "image") %>
         </div>
         <div class="col-lg-9">
-          <%= item.product_option.product.name %>
+          <h4>
+            <%= item.product_option.product.name %>
+          </h4>
           <%= item.product_option.product.description %>
           <div>
             <%= item.product_option.name %>
