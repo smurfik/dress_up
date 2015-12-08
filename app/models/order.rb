@@ -1,14 +1,14 @@
 class Order < ActiveRecord::Base
 
-  validates :name, presence: true, if: :status_complete?
-  validates :shipping_address, presence: true, if: :status_complete?
-  validates :total, presence: true, if: :status_complete?
+  validates :name, presence: true, if: :status_paid?
+  validates :shipping_address, presence: true, if: :status_paid?
+  validates :total, presence: true, if: :status_paid?
 
   has_many :items, dependent: :destroy
   belongs_to :user
 
-  def status_complete?
-    self.status == "complete"
+  def status_paid?
+    self.status == "paid"
   end
 
   def total_price

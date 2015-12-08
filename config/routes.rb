@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   get '/checkout'     , to: 'orders#show', as: :checkout
   get 'orders/:id'    , to: 'orders#view', as: :order
   patch '/orders/:id' , to: 'orders#update'
+  get '/account'      , to: 'orders#account', as: :account
 
   get '/sign-in'      , to: 'users#sign_in'  , as: :sign_in
   post '/sign-in'     , to: 'users#sign_in_user'

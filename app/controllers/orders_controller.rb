@@ -19,7 +19,7 @@ class OrdersController < ApplicationController
   def update
     @current_order.name = params[:name]
     @current_order.shipping_address = params[:shipping_address]
-    @current_order.status = "complete"
+    @current_order.status = "paid"
     @current_order.total = @current_order.total_price
     if @current_order.save
       session.delete(:order_id)
