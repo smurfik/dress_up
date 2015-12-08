@@ -23,6 +23,9 @@
             <strong>Sub Total </strong>
             <%= item.formatted_price %>
           </div>
+          <%= form_tag "cart/#{item.id}", method: "DELETE"  do %>
+            <%= submit_tag "Delete", data: {confirm: "Are you sure?"}, class: "btn btn-danger" %>
+          <% end %>
         </div>
       </div>
       <br>

@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
   get '/cart'         , to: 'orders#index'   , as: :cart
   post '/cart'        , to: 'orders#create'
+  delete '/cart/:id'  , to: 'orders#delete_item'
   get '/checkout'     , to: 'orders#show', as: :checkout
   get 'orders/:id'    , to: 'orders#view', as: :order
   patch '/orders/:id' , to: 'orders#update'

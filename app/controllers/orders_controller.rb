@@ -12,6 +12,10 @@ class OrdersController < ApplicationController
   def show
   end
 
+  def view
+    @complete_order = Order.find(params[:id])
+  end
+
   def update
     @current_order.name = params[:name]
     @current_order.shipping_address = params[:shipping_address]
@@ -25,8 +29,10 @@ class OrdersController < ApplicationController
     end
   end
 
-  def view
-    @complete_order = Order.find(params[:id])
+  def delete_item
+    @item = Item.find(params[:id])
+    @item.destroy
+    redirect_to cart_path
   end
 
 end
