@@ -13,7 +13,19 @@ class OrdersController < ApplicationController
   end
 
   def update
-    raise
+    @current_order.name = params[:name]
+    @current_order.shipping_address = params[:shipping_address]
+    @current_order.status = "complete"
+    @current_order.total = @current_order.total_price
+    if @current_order.save
+      session.delete(:order_id)
+      redirect_to order_path
+    else
+      render :show
+    end
+  end
+
+  def view
   end
 
 end

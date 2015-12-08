@@ -32,6 +32,13 @@
       <div class="col-lg-1 pull-right">Total</div>
     </div>
 
+  <div class="row">
+    <% if @current_order.errors.any? %>
+      <% @current_order.errors.full_messages.each do |message| %>
+        <div class="col-lg-6 col-lg-offset-3 text-center alert alert-info"><strong><%= message %></strong></div>
+      <% end %>
+    <% end %>
+  </div>
 
     <%= form_tag order_path(@current_order.id), method: "PATCH" do %>
         <div class="row">
