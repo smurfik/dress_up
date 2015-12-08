@@ -1,2 +1,39 @@
-<h1>Order Confirmation</h1>
+<div class="container">
+  <div class="row">
+    <h1 class="col-lg-7 col-lg-offset-2 text-center">Order Confirmation for<em> <%= @complete_order.name %></em></h1>
+  </div>
 
+  <div class="row">
+    <div class="col-lg-5 col-lg-offset-3 text-center"> Your order will be shipped to:</div>
+    <div class="col-lg-5 col-lg-offset-3 text-center"> <%= @complete_order.shipping_address %> </div>
+  </div>
+  <% @complete_order.items.each do |item| %>
+    <div class="row">
+      <div class="col-lg-2 col-lg-offset-1">
+        <%= image_tag(item.product_option.product.image_url, class: "image") %>
+      </div>
+        <div class="col-lg-9">
+          <%= item.product_option.product.name %>
+          <%= item.product_option.product.description %>
+          <div>
+            <%= item.product_option.name %>
+            <%= item.product_option.formatted_price %>
+          </div>
+          <div>
+            <strong>Quantity </strong>
+            <%= item.quantity %>
+          </div>
+          <div>
+            <strong>Sub Total </strong>
+            <%= item.formatted_price %>
+          </div>
+        </div>
+    </div>
+  <% end %>
+
+    <div class="row">
+      <div class="col-lg-1 col-lg-offset-4">Total</div>
+      <div class="col-lg-1"><%= @complete_order.formatted_price %></div>
+    </div>
+
+</div>

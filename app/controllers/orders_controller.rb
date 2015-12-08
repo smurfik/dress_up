@@ -26,6 +26,7 @@ class OrdersController < ApplicationController
   end
 
   def view
+    @complete_order = Order.find(params[:id])
   end
 
 end
