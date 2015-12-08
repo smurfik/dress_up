@@ -19,14 +19,14 @@
           <%= form_tag "cart/#{item.id}", method: "PATCH" do %>
             <%= label_tag :quantity %>
             <%= text_field_tag :quantity, item.quantity, size: 2 %>
-            <%= submit_tag "Update", class: "btn btn-success" %>
+            <%= submit_tag "Update cart", class: "btn btn-success" %>
           <% end %>
           <div>
             <strong>Sub Total </strong>
             <%= item.formatted_price %>
           </div>
           <%= form_tag "cart/#{item.id}", method: "DELETE"  do %>
-            <%= submit_tag "Delete", data: {confirm: "Are you sure?"}, class: "btn btn-danger" %>
+            <%= submit_tag "Remove", data: {confirm: "Are you sure?"}, class: "btn btn-danger" %>
           <% end %>
         </div>
       </div>
