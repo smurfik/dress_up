@@ -16,9 +16,11 @@
             <%= item.product_option.name%>
             <%= item.product_option.formatted_price %>
           </div>
-          <div><strong>Quantity</strong>
-            <%= item.quantity %>
-          </div>
+          <%= form_tag "cart/#{item.id}", method: "PATCH" do %>
+            <%= label_tag :quantity %>
+            <%= text_field_tag :quantity, item.quantity, size: 2 %>
+            <%= submit_tag "Update", class: "btn btn-success" %>
+          <% end %>
           <div>
             <strong>Sub Total </strong>
             <%= item.formatted_price %>
@@ -37,7 +39,7 @@
     </div>
 
     <div class="row">
-      <%= link_to "Checkout", checkout_path, class: "col-lg-2 col-lg-offset-5 btn btn-success" %>
+      <%= link_to "Checkout", checkout_path, class: "col-lg-2 col-lg-offset-5 btn btn-info" %>
     </div>
   <% end %>
 </div>

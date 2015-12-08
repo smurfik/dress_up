@@ -29,6 +29,13 @@ class OrdersController < ApplicationController
     end
   end
 
+  def update_item
+    @item = Item.find(params[:id])
+    @item.quantity = params[:quantity]
+    @item.save
+    redirect_to cart_path, notice: "The quantity was successfully updated!"
+  end
+
   def delete_item
     @item = Item.find(params[:id])
     @item.destroy
