@@ -1,0 +1,41 @@
+<div class="container">
+  <div class="row">
+    <h3 class="col-lg-12 text-center">Previous/Current Orders</h3>
+  </div>
+  <% @order.each do |order| %>
+    <% if order.total_price %>
+      <% if order.status != "paid" %>
+        <div class="row">
+          <div class="col-lg-2 col-lg-offset-9">Order # <%= order.id %></div>
+          <%= form_tag "order/#{order.id}", method: "DELETE"  do %>
+            <%= submit_tag "Remove", data: {confirm: "Are you sure?"}, class: "btn btn-danger" %>
+          <% end %>
+        </div>
+      <% end %>
+      <div>Order # <%= order.id %></div>
+      <div>For: <%= order.name %></div>
+      <div>Delivered to: <%= order.shipping_address %></div>
+      <div>Status: <%= order.status %></div>
+      <% order.items.each do |item| %>
+        <div class="row">
+          <div class="col-lg-2 col-lg-offset-1">
+            <%= image_tag(item.product_option.product.image_url, class: "image") %>
+          </div>
+          <%= item.product_option.product.name %>
+          <%= item.product_option.product.description %>
+          <%= item.product_option.name %>
+          <%= item.product_option.formatted_price %>
+          <strong>Quantity</strong>
+          <%= item.quantity %>
+          <strong>Sub Total </strong>
+          <%= item.formatted_price %>
+        </div>
+      <% end %>
+      <div class="row">
+        <div class="col-lg-1 pull-right"><%= order.formatted_price %></div>
+        <div class="col-lg-1 pull-right">Total</div>
+      </div>
+      <br>
+    <% end %>
+  <% end %>
+</div>

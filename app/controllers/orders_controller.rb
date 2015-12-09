@@ -42,7 +42,14 @@ class OrdersController < ApplicationController
     redirect_to cart_path
   end
 
+  def destroy
+    @order = Order.find(params[:id])
+    @order.destroy
+    redirect_to account_path, notice: "The order was successfully deleted!"
+  end
+
   def account
+    @order = @current_user.orders.reverse_order
   end
 
 end
