@@ -20,7 +20,7 @@ class ApplicationController < ActionController::Base
         @current_order.save
       end
     else
-      @current_order = Order.create()
+      @current_order = Order.create
       session[:order_id] = @current_order.id
       if set_current_user
         @current_order.user_id = session[:user_id]
