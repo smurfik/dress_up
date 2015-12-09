@@ -3,12 +3,12 @@
     <h3 class="col-lg-12 text-center">Previous/Current Orders</h3>
   </div>
   <% @order.each do |order| %>
-    <% if order.total_price %>
+    <% if order.total_price != 0 %>
       <% if order.status != "paid" %>
         <div class="row">
-          <div class="col-lg-2 col-lg-offset-9">Order # <%= order.id %></div>
+          <div class="col-lg-2 col-lg-offset-9"><%= link_to "Order # #{order.id}", "#" %> </div>
           <%= form_tag "order/#{order.id}", method: "DELETE"  do %>
-            <%= submit_tag "Remove", data: {confirm: "Are you sure?"}, class: "btn btn-danger" %>
+            <%= submit_tag "Delete", data: {confirm: "Are you sure?"}, class: "btn btn-danger" %>
           <% end %>
         </div>
       <% end %>
