@@ -49,7 +49,7 @@ class OrdersController < ApplicationController
   end
 
   def account
-    @order = @current_user.orders.reverse_order
+    @order = @current_user.orders.order("created_at desc")
   end
 
 end
