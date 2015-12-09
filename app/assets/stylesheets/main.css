@@ -1,4 +1,8 @@
-* { outline: 1px solid pink; }
+/* * { outline: 1px solid pink; } */
+
+body {
+  background-color: #99C4AE;
+}
 
 .header li {
   display: inline-block;
@@ -11,12 +15,20 @@
   width: 100%;
 }
 
+.product img {
+  width: 100%;
+}
+
+.product {
+  margin-bottom: 20px;
+}
+
 .account {
  background-color: #8A93A3;
 }
 
 .white {
-  background-color: white;
+  background-color: #99C4AE;
   height: 20px;
 }
 

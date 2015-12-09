@@ -27,12 +27,11 @@
             <% if @current_user %>
               <li><%= link_to "My Account", account_path %></li>
               <li><%= link_to "Sign Out", sign_out_path %></li>
-              <li><%= link_to "Cart (#{@current_order.items.count})", cart_path %></li>
             <% else %>
               <li><%= link_to "Sign Up", sign_up_path %></li>
               <li><%= link_to "Sign In", sign_in_path %></li>
-              <li><%= link_to "Cart (0)", cart_path %></li>
             <% end %>
+            <li><%= link_to "Cart (#{@current_order.items.count})", cart_path %></li>
           </ul>
         </div>
       </div>
