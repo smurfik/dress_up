@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   get 'orders/:id'          , to: 'orders#view'            , as: :order
   patch '/orders/:id'       , to: 'orders#update'
   get '/account'            , to: 'orders#account'         , as: :account
+
   get '/admin/orders'       , to: 'orders#display'         , as: :admin_order
 
   get '/sign-in'            , to: 'users#sign_in'          , as: :sign_in

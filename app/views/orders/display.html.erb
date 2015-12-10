@@ -1,0 +1,53 @@
+<div class="container">
+  <table>
+    <tr>
+      <th colspan="8">Orders</th>
+    </tr>
+    <tr>
+      <th>#</th>
+      <th>User ID</th>
+      <th>Name</th>
+      <th>Address</th>
+      <th>Status</th>
+      <th>Details</th>
+      <th>Total</th>
+    </tr>
+    <% @orders.each do |order| %>
+      <tr>
+        <td><%= order.id %></td>
+        <% if order.user_id == nil %>
+          <td>Guest</td>
+        <% else %>
+          <td><%= order.user_id %></td>
+        <% end %>
+        <td><%= order.name %></td>
+        <td><%= order.shipping_address %></td>
+        <td><%= order.status %></td>
+        <td>
+          <% order.items.each do |item| %>
+            <%= item.product_option.product.name %>
+            <%= item.product_option.name %>
+            <%= item.product_option.formatted_price %>
+            <strong>Quantity:</strong>
+            <%= item.quantity %>
+            <br>
+          <% end %>
+        </td>
+        <td><%= order.formatted_price %></td>
+        <% if order.status == "browsing" && order.total_price == 0 %>
+          <td>
+            <%= form_tag "#", method: "DELETE"  do %>
+              <%= submit_tag "Delete", data: {confirm: "Are you sure?"}, class: "btn btn-danger" %>
+            <% end %>
+          </td>
+        <% elsif order.status == "paid" %>
+          <td>
+            <%= form_tag "#", method: "PATCH"  do %>
+              <%= submit_tag "Shipped", class: "btn btn-success" %>
+            <% end %>
+          </td>
+        <% end %>
+      </tr>
+    <% end %>
+  </table>
+</div>

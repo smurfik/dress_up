@@ -3,7 +3,7 @@
     <h3 class="col-lg-12 text-center">Previous/Current Orders</h3>
   </div>
   <div class="account">
-    <% @order.each do |order| %>
+    <% @orders.each do |order| %>
       <% if order.total_price != 0 %>
         <% if order.status != "paid" %>
           <div class="row">

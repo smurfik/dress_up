@@ -49,10 +49,11 @@ class OrdersController < ApplicationController
   end
 
   def account
-    @order = @current_user.orders.order("id desc")
+    @orders = @current_user.orders.order("id desc")
   end
 
   def display
+    @orders = Order.all.order("id desc")
   end
 
 end
