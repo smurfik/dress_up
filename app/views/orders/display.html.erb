@@ -42,7 +42,7 @@
           </td>
         <% elsif order.status == "paid" %>
           <td>
-            <%= form_tag "#", method: "PATCH"  do %>
+            <%= form_tag "/admin/orders/#{order.id}", method: "PATCH"  do %>
               <%= submit_tag "Shipped", class: "btn btn-success" %>
             <% end %>
           </td>

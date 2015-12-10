@@ -29,6 +29,13 @@ class OrdersController < ApplicationController
     end
   end
 
+  def update_status
+    @order = Order.find(params[:id])
+    @order.status = "shipped"
+    @order.save
+    redirect_to admin_order_path, notice: "The order #{@order.id} is updated"
+  end
+
   def update_item
     @item = Item.find(params[:id])
     @item.quantity = params[:quantity]

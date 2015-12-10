@@ -5,7 +5,7 @@
   <div class="account">
     <% @orders.each do |order| %>
       <% if order.total_price != 0 %>
-        <% if order.status != "paid" %>
+        <% if order.status == "browsing" %>
           <div class="row">
             <div class="col-lg-2 col-lg-offset-9"><%= link_to "Order # #{order.id}", "#" %> </div>
             <%= form_tag "order/#{order.id}", method: "DELETE"  do %>
