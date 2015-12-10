@@ -34,33 +34,33 @@
       <div class="col-lg-1 pull-right">Total</div>
     </div>
 
-  <div class="row">
-    <% if @current_order.errors.any? %>
-      <% @current_order.errors.full_messages.each do |message| %>
-        <div class="col-lg-6 col-lg-offset-3 text-center alert alert-info"><strong><%= message %></strong></div>
+    <div class="row">
+      <% if @current_order.errors.any? %>
+        <% @current_order.errors.full_messages.each do |message| %>
+          <div class="col-lg-6 col-lg-offset-3 text-center alert alert-info"><strong><%= message %></strong></div>
+        <% end %>
       <% end %>
-    <% end %>
-  </div>
+    </div>
 
     <%= form_tag order_path(@current_order.id), method: "PATCH" do %>
-        <div class="row">
-          <div class="col-lg-3 col-lg-offset-3 text-center">
-            <%= label_tag :name %>
-          </div>
+      <div class="row">
+        <div class="col-lg-3 col-lg-offset-3 text-center">
+          <%= label_tag :name %>
+        </div>
         <%= text_field_tag :name, nil, class: "col-lg-2" %>
+      </div>
+      <div class="row">
+        <div class="col-lg-3 col-lg-offset-3 text-center">
+          <%= label_tag "Shipping Address" %>
         </div>
-        <div class="row">
-          <div class="col-lg-3 col-lg-offset-3 text-center">
-            <%= label_tag "Shipping Address" %>
-          </div>
-          <%= text_area_tag :shipping_address, nil, class: "col-lg-2" %>
+        <%= text_area_tag :shipping_address, nil, class: "col-lg-2" %>
+      </div>
+      <br>
+      <div class="row">
+        <div class="col-lg-2 col-lg-offset-5">
+          <%= submit_tag "Submit Order", class: "btn btn-block btn-success" %>
         </div>
-        <br>
-        <div class="row">
-          <div class="col-lg-2 col-lg-offset-5">
-            <%= submit_tag "Submit Order", class: "btn btn-block btn-success" %>
-          </div>
-        </div>
+      </div>
       <% end %>
   <% end %>
 </div>

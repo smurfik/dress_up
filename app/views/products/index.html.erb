@@ -1,17 +1,15 @@
 <div class="container">
 
-  <div class="row">
-    <% @products.in_groups_of(3, false).each do |group| %>
-      <div class="row">
-        <% group.each do |product| %>
-          <div class="product col-lg-4">
-            <%= link_to image_tag(product.image_url, class: "image"), product_path(product.id) %>
-            <h4><%= link_to "#{product.name}", product_path(product.id) %></h4>
-            <%= product.description %>
-          </div>
-        <% end %>
-      </div>
-    <% end %>
-  </div>
+  <% @products.in_groups_of(3, false).each do |group| %>
+    <div class="row">
+      <% group.each do |product| %>
+        <div class="product col-lg-4">
+          <%= link_to image_tag(product.image_url, class: "image"), product_path(product.id) %>
+          <h4><%= link_to "#{product.name}", product_path(product.id) %></h4>
+          <%= product.description %>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
 
 </div>
