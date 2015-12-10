@@ -45,7 +45,11 @@ class OrdersController < ApplicationController
   def destroy
     @order = Order.find(params[:id])
     @order.destroy
-    redirect_to account_path, notice: "The order was successfully deleted!"
+    if @current_user.admin
+      redirect_to admin_order_path, notice: "The order was successfully deleted!"
+    else
+      redirect_to account_path, notice: "The order was successfully deleted!"
+    end
   end
 
   def account

@@ -36,7 +36,7 @@
         <td><%= order.formatted_price %></td>
         <% if order.status == "browsing" && order.total_price == 0 %>
           <td>
-            <%= form_tag "#", method: "DELETE"  do %>
+            <%= form_tag "/order/#{order.id}", method: "DELETE"  do %>
               <%= submit_tag "Delete", data: {confirm: "Are you sure?"}, class: "btn btn-danger" %>
             <% end %>
           </td>
