@@ -52,4 +52,7 @@ class OrdersController < ApplicationController
     @order = @current_user.orders.order("created_at desc")
   end
 
+  def display
+  end
+
 end

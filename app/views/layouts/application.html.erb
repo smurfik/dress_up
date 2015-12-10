@@ -30,8 +30,8 @@
           <ul class="nav navbar-nav">
             <% if @current_user %>
               <% if @current_user.admin %>
-                <li><%= link_to "Products", "#" %></li>
-                <li><%= link_to "Order", "#" %></li>
+                <li><%= link_to "Products", admin_path %></li>
+                <li><%= link_to "Order", admin_order_path %></li>
                 <li><%= link_to "Sign Out", sign_out_path %></li>
               <% else %>
                 <li><%= link_to "My Account", account_path %></li>
