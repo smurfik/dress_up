@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   before_action :set_current_user, except: [:sign_in_user, :sign_out, :create]
-  before_action :set_current_order
+  before_action :set_current_order, except: [:show_products]
 
   def set_current_user
     if session[:user_id]
@@ -19,7 +19,7 @@ class ApplicationController < ActionController::Base
         @current_order.user_id = session[:user_id]
         @current_order.save
       end
-    elsif !@current_user.admin
+    else
       @current_order = Order.create
       session[:order_id] = @current_order.id
       if set_current_user
