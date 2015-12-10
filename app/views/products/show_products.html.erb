@@ -1,27 +1,26 @@
-<div class="container">
-  <div class="row">
+<div class="container"> <div class="row">
     <%= link_to "Add Product", new_product_path, class: "btn btn-success col-lg-6 col-lg-offset-3" %>
   </div>
-  <table>
+  <table class="table">
     <tr>
-      <th colspan="8">Products</th>
+      <th colspan="8" class="text-center"><h3>Current Products</h3></th>
     </tr>
     <tr>
-      <th>ID</th>
-      <th>Name</th>
-      <th>Image/Description</th>
-      <th>Product Options/Price</th>
+      <th class="text-center">Name</th>
+      <th class="text-center">Image/Description</th>
+      <th class="text-center">Product Options/Price</th>
     </tr>
 
     <% @products.each do |product| %>
       <tr>
-        <td><%= product.id %></td>
         <td><%= product.name %></td>
-        <td><%= image_tag(product.image_url) %><%= product.description %></td>
+        <td><%= image_tag(product.image_url, class: "col-lg-3") %><div class="col-lg-9"><%= product.description %></div></td>
         <td>
           <% product.product_options.each do |product_option| %>
-            <%= product_option.name %>
-            <%= product_option.formatted_price %>
+            <div>
+              <%= product_option.name %>
+              <%= product_option.formatted_price %>
+            </div>
             <br>
           <% end %>
         </td>
@@ -35,7 +34,14 @@
         </td>
       </tr>
     <% end %>
-
+    <tfoot>
+        <tr>
+          <td></td>
+          <td class="text-right">Total Products</td>
+          <td><%= @products.size %></td>
+          <td><td>
+        </tr>
+      </tfoot>
   </table>
 
 </div>

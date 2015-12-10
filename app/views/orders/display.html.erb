@@ -1,16 +1,16 @@
 <div class="container">
-  <table>
+  <table class="table">
     <tr>
-      <th colspan="8">Orders</th>
+      <th colspan="8" class="text-center"><h3>Orders</h3></th>
     </tr>
     <tr>
-      <th>#</th>
-      <th>User ID</th>
-      <th>Name</th>
-      <th>Address</th>
-      <th>Status</th>
-      <th>Details</th>
-      <th>Total</th>
+      <th class="text-center">#</th>
+      <th class="text-center">User ID</th>
+      <th class="text-center">Name</th>
+      <th class="text-center">Address</th>
+      <th class="text-center">Status</th>
+      <th class="text-center">Details</th>
+      <th class="text-center">Total</th>
     </tr>
     <% @orders.each do |order| %>
       <tr>
@@ -25,11 +25,13 @@
         <td><%= order.status %></td>
         <td>
           <% order.items.each do |item| %>
-            <%= item.product_option.product.name %>
-            <%= item.product_option.name %>
-            <%= item.product_option.formatted_price %>
-            <strong>Quantity:</strong>
-            <%= item.quantity %>
+            <div>
+              <%= item.product_option.product.name %>
+              <%= item.product_option.name %>
+              <%= item.product_option.formatted_price %>
+              <strong>Quantity:</strong>
+              <%= item.quantity %>
+            </div>
             <br>
           <% end %>
         </td>
@@ -46,6 +48,8 @@
               <%= submit_tag "Shipped", class: "btn btn-success" %>
             <% end %>
           </td>
+        <% else %>
+          <td></td>
         <% end %>
       </tr>
     <% end %>
