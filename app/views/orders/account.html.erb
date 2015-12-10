@@ -20,7 +20,7 @@
         <% order.items.each do |item| %>
           <div class="row">
             <div class="col-lg-2 col-lg-offset-1">
-              <%= image_tag(item.product_option.product.image_url, class: "image") %>
+              <%= image_tag(item.product_option.product.image_url, class: "image img-thumbnail") %>
             </div>
             <h4>
               <%= item.product_option.product.name %>
