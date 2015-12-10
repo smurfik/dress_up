@@ -4,24 +4,21 @@
     <h1 class="col-lg-6 col-lg-offset-3 text-center">Sign In</h1>
   </div>
 
-  <%= form_tag sign_in_path do %>
-    <div class="row">
+  <%= form_tag sign_in_path, class: "form-horizontal" do %>
+    <div class="form-group">
       <div class="col-lg-3 col-lg-offset-3 text-center">
-        <%= label_tag "e-mail" %>
+        <%= label_tag :email %>
       </div>
-      <%= text_field_tag :email, nil, class: "col-lg-2" %>
+      <%= text_field_tag :email, nil, class: "col-lg-2", placeholder: "email" %>
     </div>
-    <div class="row">
+    <div class="form-group">
       <div class="col-lg-3 col-lg-offset-3 text-center">
         <%= label_tag :password %>
       </div>
-      <%= password_field_tag :password, nil, class: "col-lg-2" %>
+      <%= password_field_tag :password, nil, class: "col-lg-2", placeholder: "password" %>
     </div>
-    <br>
-    <div class="row">
-      <div class="col-lg-2 col-lg-offset-5">
-        <%= submit_tag "Sign In", class: "btn btn-block btn-success" %>
-      </div>
+    <div class="col-lg-2 col-lg-offset-5">
+      <%= submit_tag "Sign In", class: "btn btn-block btn-success" %>
     </div>
   <% end %>
 
