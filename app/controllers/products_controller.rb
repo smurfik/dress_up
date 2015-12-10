@@ -9,4 +9,7 @@ class ProductsController < ApplicationController
     @product_options = @product.product_options
   end
 
+  def show_products
+  end
+
 end

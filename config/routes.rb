@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   get '/'             , to: 'products#index' , as: :root
   get '/products/:id' , to: 'products#show'  , as: :product
 
+  get '/admin/products', to: 'products#show_products', as: :admin
+
   get '/cart'         , to: 'orders#index'   , as: :cart
   post '/cart'        , to: 'orders#create'
   patch '/cart/:id'   , to: 'orders#update_item'

@@ -8,11 +8,14 @@ class UsersController < ApplicationController
 
   def sign_in_user
     @user = User.find_by(email: params[:email])
-    if @user &&  @user.authenticate(params[:password])
+    if @user &&  @user.authenticate(params[:password]) && !@user.admin
       session[:user_id] = @user.id
       @current_order.user_id = session[:user_id]
       @current_order.save
       redirect_to root_path, notice: "Welcome!"
+    elsif @user.admin
+      session[:user_id] = @user.id
+      redirect_to admin_path
     else
       redirect_to sign_in_path, notice: "Wrong username or password. Try again!"
     end
