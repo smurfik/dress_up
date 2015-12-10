@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get '/admin/products'     , to: 'products#show_products' , as: :admin
   get '/admin/products/new' , to: 'products#new'           , as: :new_product
   get '/admin/products/:id' , to: 'products#edit'          , as: :admin_product
+  delete '/admin/products/:id' , to: 'products#destroy'
 
   get '/cart'               , to: 'orders#index'           , as: :cart
   post '/cart'              , to: 'orders#create'

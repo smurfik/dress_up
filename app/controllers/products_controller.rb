@@ -10,6 +10,16 @@ class ProductsController < ApplicationController
   end
 
   def show_products
+    @products = Product.all
+  end
+
+  def edit
+  end
+
+  def destroy
+    @product = Product.find(params[:id])
+    @product.destroy
+    redirect_to admin_path, notice: "The product was deleted"
   end
 
 end

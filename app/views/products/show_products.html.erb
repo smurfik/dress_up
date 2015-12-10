@@ -1,0 +1,41 @@
+<div class="container">
+  <div class="row">
+    <%= link_to "Add Product", new_product_path, class: "btn btn-success col-lg-6 col-lg-offset-3" %>
+  </div>
+  <table>
+    <tr>
+      <th colspan="8">Products</th>
+    </tr>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Image/Description</th>
+      <th>Product Options/Price</th>
+    </tr>
+
+    <% @products.each do |product| %>
+      <tr>
+        <td><%= product.id %></td>
+        <td><%= product.name %></td>
+        <td><%= image_tag(product.image_url) %><%= product.description %></td>
+        <td>
+          <% product.product_options.each do |product_option| %>
+            <%= product_option.name %>
+            <%= product_option.formatted_price %>
+            <br>
+          <% end %>
+        </td>
+        <td>
+          <%= link_to "Edit", admin_product_path(product.id), class: "btn btn-success" %>
+        </td>
+        <td>
+          <%= form_tag admin_product_path(product.id), method: "DELETE"  do %>
+            <%= submit_tag "Delete", data: {confirm: "Are you sure?"}, class: "btn btn-danger" %>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+
+  </table>
+
+</div>
