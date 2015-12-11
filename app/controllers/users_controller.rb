@@ -29,12 +29,6 @@ class UsersController < ApplicationController
     end
   end
 
-  def sign_out
-    session.delete(:user_id)
-    session.delete(:order_id)
-    redirect_to root_path, notice: "See you soon!"
-  end
-
   def create
     @user = User.new(params.require(:user).permit(:email, :password, :password_confirmation))
     if @user.save
@@ -45,6 +39,12 @@ class UsersController < ApplicationController
     else
       render :sign_up
     end
+  end
+
+  def sign_out
+    session.delete(:user_id)
+    session.delete(:order_id)
+    redirect_to root_path, notice: "See you soon!"
   end
 
 end

@@ -18,6 +18,14 @@ class OrdersController < ApplicationController
     @complete_order = Order.find(params[:id])
   end
 
+  def account
+    @orders = @current_user.orders.order("id desc")
+  end
+
+  def display
+    @orders = Order.all.order("id desc")
+  end
+
   def update
     @current_order.name = params[:name]
     @current_order.shipping_address = params[:shipping_address]
@@ -59,14 +67,6 @@ class OrdersController < ApplicationController
     else
       redirect_to account_path, notice: "The order was successfully deleted!"
     end
-  end
-
-  def account
-    @orders = @current_user.orders.order("id desc")
-  end
-
-  def display
-    @orders = Order.all.order("id desc")
   end
 
 end

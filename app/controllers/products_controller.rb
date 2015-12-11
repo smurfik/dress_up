@@ -20,19 +20,6 @@ class ProductsController < ApplicationController
     @pr_option = ProductOption.new
   end
 
-  def update
-    @pr_option = ProductOption.new
-    @product = Product.find(params[:id])
-    @product.name = params[:name]
-    @product.description = params[:description]
-    @product.image_url = params[:image_url]
-    if @product.save
-      redirect_to admin_path, notice: "The product was updated"
-    else
-      render :edit
-    end
-  end
-
   def new
     @product = Product.new
   end
@@ -43,6 +30,19 @@ class ProductsController < ApplicationController
       redirect_to  admin_product_path(@product.id), notice: "The Product was added!"
     else
       render :new
+    end
+  end
+
+  def update
+    @pr_option = ProductOption.new
+    @product = Product.find(params[:id])
+    @product.name = params[:name]
+    @product.description = params[:description]
+    @product.image_url = params[:image_url]
+    if @product.save
+      redirect_to admin_path, notice: "The product was updated"
+    else
+      render :edit
     end
   end
 
