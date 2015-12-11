@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   post '/admin/products' , to: 'products#create'
   get '/admin/products/new' , to: 'products#new'           , as: :new_product
   get '/admin/products/:id' , to: 'products#edit'          , as: :admin_product
+  post '/admin/products/:id' , to: 'products#create_product_option'
   delete '/admin/products/:id' , to: 'products#destroy'
   patch '/admin/products/:id' , to: 'products#update'
 

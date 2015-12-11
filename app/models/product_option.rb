@@ -2,7 +2,7 @@ class ProductOption < ActiveRecord::Base
 
   belongs_to :product
 
-  validates :name, presence: true, uniqueness: true
+  validates :name, presence: true
   validates :price_in_cents, presence: true
 
   def dropdown_view
