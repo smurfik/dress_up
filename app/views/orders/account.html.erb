@@ -13,7 +13,11 @@
             <% end %>
           </div>
         <% end %>
-        <div>Order # <%= order.id %></div>
+        <% if order.status != "browsing" %>
+          <div><%= link_to "Order # #{order.id}", order_path(order.id) %></div>
+        <% else %>
+          <div>Order # <%= order.id %></div>
+        <% end %>
         <div>For: <%= order.name %></div>
         <div>Delivered to: <%= order.shipping_address %></div>
         <div>Status: <%= order.status %></div>
@@ -39,6 +43,7 @@
               <%= item.formatted_price %>
             </div>
           </div>
+          <br>
         <% end %>
         <div class="row">
           <div class="col-lg-2 pull-right"><%= order.formatted_price %></div>

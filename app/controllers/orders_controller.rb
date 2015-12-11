@@ -16,6 +16,9 @@ class OrdersController < ApplicationController
 
   def view
     @complete_order = Order.find(params[:id])
+    if @complete_order.user_id != session[:user_id]
+      redirect_to root_path
+    end
   end
 
   def account
