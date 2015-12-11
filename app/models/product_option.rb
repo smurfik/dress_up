@@ -2,6 +2,9 @@ class ProductOption < ActiveRecord::Base
 
   belongs_to :product
 
+  validates :name, presence: true, uniqueness: true
+  validates :price_in_cents, presence: true
+
   def dropdown_view
     "#{name} #{formatted_price}"
   end
