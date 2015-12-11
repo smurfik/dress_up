@@ -45,9 +45,9 @@ class ProductsController < ApplicationController
 
   def create_product_option
     @product = Product.find(params[:id])
-    @product_option = ProductOption.new(product_id: @product.id, name: params[:name], price_in_cents: params[:price_in_cents])
-    if @product_option.save
-      redirect_to admin_product_path(@product.id), notice: "The product Option was updated"
+    @pr_option = ProductOption.new(product_id: @product.id, name: params[:name], price_in_cents: params[:price_in_cents])
+    if @pr_option.save
+      redirect_to admin_product_path(@product.id), notice: "The product option was added"
     else
       render :edit
     end
