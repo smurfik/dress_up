@@ -10,6 +10,8 @@ Rails.application.routes.draw do
   post '/admin/products/:id' , to: 'products#create_product_option'
   delete '/admin/products/:id' , to: 'products#destroy'
   patch '/admin/products/:id' , to: 'products#update'
+  patch '/admin/products/:id/:pr_option_id' , to: 'products#update_product_option'
+  delete '/admin/products/:id/:pr_option_id' , to: 'products#delete_product_option'
 
   get '/cart'               , to: 'orders#index'           , as: :cart
   post '/cart'              , to: 'orders#create'

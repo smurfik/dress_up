@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
 
-  skip_before_action :set_current_order, only: [:create, :update, :create_product_option]
+  skip_before_action :set_current_order, only: [:create, :update, :create_product_option, :update_product_option, :delete_product_option]
 
   def index
     @products = Product.all
@@ -54,6 +54,25 @@ class ProductsController < ApplicationController
     else
       render :edit
     end
+  end
+
+  def update_product_option
+    @product = Product.find(params[:id])
+    @product_option = ProductOption.find(params[:pr_option_id])
+    @product_option.name = params[:name]
+    @product_option.price_in_cents = params[:price_in_cents]
+    if @product_option.save
+      redirect_to admin_path, notice: "The product option was updated"
+    else
+      @pr_option = ProductOption.new
+      render :edit
+    end
+  end
+
+  def delete_product_option
+    @product_option = ProductOption.find(params[:pr_option_id])
+    @product_option.destroy
+    redirect_to admin_path, notice: "The product option was deleted"
   end
 
   def destroy
