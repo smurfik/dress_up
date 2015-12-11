@@ -1,0 +1,43 @@
+<div class="container">
+
+  <div class="row">
+    <h1 class="col-lg-6 col-lg-offset-3 text-center">Edit Product</h1>
+  </div>
+  <br>
+
+  <% if @product.errors.any? %>
+    <ul class="list-unstyled">
+      <% @product.errors.each do |column, message| %>
+        <div class="row">
+          <li class="col-lg-6 col-lg-offset-3 text-center alert alert-danger">
+            <%= column.capitalize %> <%= message %>
+          </li>
+        </div>
+      <% end %>
+  <% end %>
+
+  <%= form_tag admin_product_path(params[:id]), method: "PATCH", class: "form-horizontal" do %>
+    <div class="form-group">
+      <div class="col-lg-3 col-lg-offset-3 text-center">
+        <%= label_tag :name %>
+      </div>
+      <%= text_field_tag :name, @product.name, class: "col-lg-2" %>
+    </div>
+    <div class="form-group">
+      <div class="col-lg-3 col-lg-offset-3 text-center">
+        <%= label_tag :description %>
+      </div>
+      <%= text_area_tag :description, @product.description, class: "col-lg-2" %>
+    </div>
+    <div class="form-group">
+      <div class="col-lg-3 col-lg-offset-3 text-center">
+        <%= label_tag "Image Url"%>
+      </div>
+      <%= text_area_tag :image_url, @product.image_url, class: "col-lg-2" %>
+    </div>
+    <div class="col-lg-2 col-lg-offset-5">
+      <%= submit_tag "Update", class: "btn btn-block btn-success" %>
+    </div>
+  <% end %>
+
+</div>

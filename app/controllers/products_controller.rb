@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
 
-  skip_before_action :set_current_order, only: [:create]
+  skip_before_action :set_current_order, only: [:create, :update]
 
   def index
     @products = Product.all
@@ -16,6 +16,19 @@ class ProductsController < ApplicationController
   end
 
   def edit
+    @product = Product.find(params[:id])
+  end
+
+  def update
+    @product = Product.find(params[:id])
+    @product.name = params[:name]
+    @product.description = params[:description]
+    @product.image_url = params[:image_url]
+    if @product.save
+      redirect_to admin_path, notice: "The product was updated"
+    else
+      render :edit
+    end
   end
 
   def new
