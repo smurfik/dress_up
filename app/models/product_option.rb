@@ -3,7 +3,7 @@ class ProductOption < ActiveRecord::Base
   belongs_to :product
 
   validates :name, presence: true
-  validates :price_in_cents, presence: true
+  validates :price_in_cents, presence: true, numericality: { only_integer: true }
 
   def dropdown_view
     "#{name} #{formatted_price}"

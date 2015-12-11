@@ -17,9 +17,11 @@ class ProductsController < ApplicationController
 
   def edit
     @product = Product.find(params[:id])
+    @pr_option = ProductOption.new
   end
 
   def update
+    @pr_option = ProductOption.new
     @product = Product.find(params[:id])
     @product.name = params[:name]
     @product.description = params[:description]
@@ -32,6 +34,7 @@ class ProductsController < ApplicationController
   end
 
   def new
+    @product = Product.new
   end
 
   def create
