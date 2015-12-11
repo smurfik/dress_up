@@ -1,5 +1,7 @@
 class ProductsController < ApplicationController
 
+  skip_before_action :set_current_order, only: [:create]
+
   def index
     @products = Product.all
   end
@@ -14,6 +16,18 @@ class ProductsController < ApplicationController
   end
 
   def edit
+  end
+
+  def new
+  end
+
+  def create
+    @product = Product.new(name: params[:name], description: params[:description], image_url: params[:image_url])
+    if @product.save
+      redirect_to  admin_product_path(@product.id), notice: "The Product was added!"
+    else
+      render :new
+    end
   end
 
   def destroy

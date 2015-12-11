@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
-  before_action :set_current_user, except: [:sign_in_user, :sign_out, :create]
+  before_action :set_current_user, except: [:sign_in_user, :sign_out]
   before_action :set_current_order, except: [:show_products, :edit, :new, :display, :destroy, :sign_out, :update_status]
 
   def set_current_user

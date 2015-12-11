@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
 
+  skip_before_action :set_current_user, only: [:create]
+
   def sign_in
     if set_current_user
       redirect_to root_path

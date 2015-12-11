@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get '/products/:id'       , to: 'products#show'          , as: :product
 
   get '/admin/products'     , to: 'products#show_products' , as: :admin
+  post '/admin/products' , to: 'products#create'
   get '/admin/products/new' , to: 'products#new'           , as: :new_product
   get '/admin/products/:id' , to: 'products#edit'          , as: :admin_product
   delete '/admin/products/:id' , to: 'products#destroy'
