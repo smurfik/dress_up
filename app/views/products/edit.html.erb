@@ -111,9 +111,9 @@
       <div class="col-lg-2 col-lg-offset-5">
         <%= submit_tag "Update", class: "btn btn-block btn-success" %>
       </div>
-      <%= form_tag "/admin/products/#{params[:id]}/#{product_option.id}", method: "DELETE"  do %>
-        <%= submit_tag "Delete", data: {confirm: "Are you sure?"}, class: "btn btn-danger" %>
-      <% end %>
+    <% end %>
+    <%= form_tag "/admin/products/#{params[:id]}/#{product_option.id}", method: "DELETE"  do %>
+      <%= submit_tag "Delete", data: {confirm: "Are you sure?"}, class: "btn btn-danger" %>
     <% end %>
   <% end %>
 
