@@ -15,6 +15,9 @@ class UsersController < ApplicationController
       @current_order.user_id = session[:user_id]
       @current_order.save
       redirect_to root_path, notice: "Welcome!"
+    # REVIEW: This line is dangerous because you are not checking the @user.authenticate
+    #         on this line, which means that logging in as an admin just means you need to put
+    #         in the email address with any password
     elsif @user.admin
       session[:user_id] = @user.id
       redirect_to admin_path
@@ -24,6 +27,7 @@ class UsersController < ApplicationController
   end
 
   def sign_up
+    # Since set_current_user sets the @current_user variable, better to check that variable instead of the method
     if set_current_user
       redirect_to root_path
     end

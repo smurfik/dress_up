@@ -7,6 +7,7 @@ class OrdersController < ApplicationController
 
   def create
     @product_option = ProductOption.find(params[:product_option_id])
+    # REVIEW: breaking line 11 onto multiple lines would be recommended since it's so long
     @item = Item.create(order_id: @current_order.id, product_option_id: @product_option.id, price: @product_option.price_in_cents, quantity: params[:quantity])
     redirect_to cart_path, notice: "The item was added to the cart"
   end
@@ -26,6 +27,8 @@ class OrdersController < ApplicationController
   end
 
   def display
+    # REVIEW: Doesn't really matter but `.all` isn't needed here since you are using `.order`
+    #         `.order` does the same thing as .all, but it also orders the records
     @orders = Order.all.order("id desc")
   end
 
@@ -50,6 +53,8 @@ class OrdersController < ApplicationController
   end
 
   def update_item
+    # REVIEW: Really nit picky, but you may want to consider putting this action in a `items_controller`
+    #         since that is what it's updating. Same with the delete_item below
     @item = Item.find(params[:id])
     @item.quantity = params[:quantity]
     @item.save
