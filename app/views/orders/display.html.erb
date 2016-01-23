@@ -15,6 +15,7 @@
     <% @orders.each do |order| %>
       <tr>
         <td><%= order.id %></td>
+        <!-- REVIEW: You can use order.user_id.nil? instead of checking `== nil` -->
         <% if order.user_id == nil %>
           <td>Guest</td>
         <% else %>
@@ -36,6 +37,7 @@
           <% end %>
         </td>
         <td><%= order.formatted_price %></td>
+        <!-- REVIEW: This logic would be good to put in the `Order` model -->
         <% if order.status == "browsing" && order.total_price == 0 %>
           <td>
             <%= form_tag "/order/#{order.id}", method: "DELETE"  do %>

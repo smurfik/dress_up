@@ -1,5 +1,6 @@
 class ProductsController < ApplicationController
 
+  # REVIEW: I'm guessing that you don't need to skip the set_current_user, it's ok if you don't use current_user, you can still run the method
   skip_before_action :set_current_order, only: [:create, :update, :create_product_option, :update_product_option, :delete_product_option]
 
   def index
@@ -25,6 +26,7 @@ class ProductsController < ApplicationController
   end
 
   def create
+    # REVIEW: Setting up the form to use a nested hash could simplify the arguments here
     @product = Product.new(name: params[:name], description: params[:description], image_url: params[:image_url])
     if @product.save
       redirect_to  admin_product_path(@product.id), notice: "The Product was added!"
@@ -36,6 +38,7 @@ class ProductsController < ApplicationController
   def update
     @pr_option = ProductOption.new
     @product = Product.find(params[:id])
+    # REVIEW: Setting up the form to use a nested hash could simplify the arguments here
     @product.name = params[:name]
     @product.description = params[:description]
     @product.image_url = params[:image_url]
@@ -47,6 +50,7 @@ class ProductsController < ApplicationController
   end
 
   def create_product_option
+    # REVIEW: This should be in a product_options_controller.rb
     @product = Product.find(params[:id])
     @pr_option = ProductOption.new(product_id: @product.id, name: params[:name], price_in_cents: params[:price_in_cents])
     if @pr_option.save
